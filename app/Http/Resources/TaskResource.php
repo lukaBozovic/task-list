@@ -21,6 +21,7 @@ class TaskResource extends JsonResource
             'assignee' => UserResource::make($this->assignee),
             'description' => $this->description,
             'deadline' => $this->deadline,
-        ];
+            'is_completed' => $this->is_completed
+            ];
     }
 }

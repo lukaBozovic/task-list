@@ -30,4 +30,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::middleware('auth:sanctum')->group(function (){
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::apiResource('/tasks', TaskController::class);
+    Route::get('/assigned-tasks', [TaskController::class, 'getAssignedTasks']);
+    Route::get('/created-tasks', [TaskController::class, 'getCreatedTasks']);
+    Route::patch('/tasks/{task}/mark-as-completed', [TaskController::class, 'markAsCompleted'])->can('markAsCompleted,task');
 });
